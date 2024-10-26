@@ -6,32 +6,118 @@
         xmlns:local="clr-namespace:SE171089_WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
-    <Grid>
-        <Frame x:Name="frMain" NavigationUIVisibility="Hidden" Margin="0,0,0,0"/>
-        <Button x:Name="btnQuit" Content="Quit" 
-                Margin="0,150,0,0" 
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Center"
-                Width="100" Height="30"
-                FontFamily="Cascadia Code" FontSize="15" Background="Red" BorderBrush="Red" Foreground="White"/>
-        <Button x:Name="btnRent" Content="Rent Book" 
-                Margin="0,50,0,0" 
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Center"
-                Width="100" Height="31"
-                FontFamily="Cascadia Code" FontSize="15" Background="AliceBlue" BorderBrush="AliceBlue" Foreground="Black"/>
-        <Button x:Name="btnBook" Content="Manage Book" 
-                
-                HorizontalAlignment="Left" 
-                Margin="0,-50,0,0" 
-                VerticalAlignment="Center"
-                Width="100" Height="30"
-                FontFamily="Cascadia Code" FontSize="15" Background="AliceBlue" BorderBrush="AliceBlue" Foreground="Black"/>
-        <Button x:Name="btnUser" Content="Manage User" 
-                HorizontalAlignment="Left" 
-                Margin="0,-150,0,0" 
-                VerticalAlignment="Center"
-                Width="100" Height="30"
-                FontFamily="Cascadia Code" FontSize="15" Background="AliceBlue" BorderBrush="AliceBlue" Foreground="Black"/>
+    <Grid Background="AliceBlue">
+        <Frame x:Name="frMain" 
+               NavigationUIVisibility="Hidden" 
+               Background="White"
+               Margin="200,100,0,0"
+               />
+        <Button x:Name="btnUser" Content="User"
+                VerticalAlignment="Top" HorizontalAlignment="Left"
+                Width="200" Height="60"
+                FontFamily="Cascadia Code" FontSize="25"
+                Margin="0,100,0,0"
+                Cursor="Hand"
+                MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
+                Background="AliceBlue" BorderBrush="AliceBlue" Click="btnUser_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="30,0,0,30">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnCategory" Content="Category"
+                VerticalAlignment="Top" HorizontalAlignment="Left"
+                Width="200" Height="60"
+                FontFamily="Cascadia Code" FontSize="25"
+                Margin="0,160,0,0"
+                Cursor="Hand"
+                Background="AliceBlue" BorderBrush="AliceBlue" Click="btnCategory_Click"
+                MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
+                >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="30,0,0,30">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnBook" Content="Book"
+                VerticalAlignment="Top" HorizontalAlignment="Left"
+                Width="200" Height="60"
+                FontFamily="Cascadia Code" FontSize="25"
+                Margin="0,220,0,0"
+                Cursor="Hand"
+                Background="AliceBlue" BorderBrush="AliceBlue" Click="btnBook_Click"
+                MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
+                >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="30,0,0,30">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnRent" Content="Rent"
+                VerticalAlignment="Top" HorizontalAlignment="Left"
+                Width="200" Height="60"
+                FontFamily="Cascadia Code" FontSize="25"
+                Margin="0,280,0,0"
+                Cursor="Hand"
+                Background="AliceBlue" BorderBrush="AliceBlue" Click="btnRent_Click"
+                MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
+                >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="30,0,0,30">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnQuit" Content="Quit"
+                VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                Width="200" Height="50"
+                Cursor="Hand"
+                FontFamily="Cascadia Code" FontSize="25"
+                Background="Red" Foreground="White" BorderBrush="Red" Click="btnQuit_Click"
+                MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
+                >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="25,0,0,25">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top"
+                   FontFamily="Cascadia Code" FontSize="80" FontWeight="Bold"
+                   Foreground="Black"
+                   Margin="0,0,0,0" TextWrapping="NoWrap" Text="Library Management"/>
     </Grid>
 </Window>
