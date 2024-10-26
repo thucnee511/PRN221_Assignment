@@ -1,4 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SE171089_BusinessObject;
+using SE171089_WPF.Pages.AuthenPages;
+using SE171089_WPF.Pages.UserPages;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,13 +21,15 @@ namespace SE171089_WPF
     public partial class MainWindow : Window
     {
         private Button activeButton;
+        private Account CurrentAccount { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            frMain.Content = new LoginPage(AccessControl);
         }
         private void ActiveButton(object button)
         {
-            Button clickedButton = (Button) button;
+            Button clickedButton = (Button)button;
             if (activeButton != null)
             {
                 activeButton.Background = Brushes.AliceBlue;
@@ -78,7 +83,34 @@ namespace SE171089_WPF
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            MessageBoxResult answer = MessageBox.Show("Do you want to exit the app?", "Exit App!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (answer == MessageBoxResult.Yes)
+                Application.Current.Shutdown();
+        }
+
+        private void AccessControl(Account account)
+        {
+            CurrentAccount = account;
+            int role = CurrentAccount.RoleId;
+            if (role == 1 || role == 2)
+            {
+                frMain.Margin = new Thickness(200, 100, 0, 0);
+                btnBook.Visibility = Visibility.Visible;
+                btnCategory.Visibility = Visibility.Visible;
+                btnRent.Visibility = Visibility.Visible;
+                btnUser.Visibility = Visibility.Visible;
+                btnQuit.Visibility = Visibility.Visible;
+                ActiveButton(btnUser);
+                frMain.Content = new UserPage();
+            }
+            else
+            {
+                MessageBoxResult answer = MessageBox.Show("You don't have permission to access this application!", "Access Denied", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (answer == MessageBoxResult.OK)
+                {
+                    Application.Current.Shutdown();
+                }
+            }
         }
     }
 }

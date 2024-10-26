@@ -5,10 +5,88 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SE171089_WPF.Pages.AuthenPages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="620" d:DesignWidth="1280"
       Title="LoginPage">
-
-    <Grid>
-        
+    <Grid Background="White">
+        <TextBox 
+            x:Name="txtEmail"
+            HorizontalAlignment="Right" 
+            Margin="0,200,300,0" 
+            TextWrapping="NoWrap" Text="" 
+            VerticalAlignment="Top" 
+            Width="340" Height="40"
+            FontFamily="Cascadia Code" FontSize="20" 
+            VerticalContentAlignment="Center" 
+            Background="{x:Null}"/>
+        <PasswordBox 
+            x:Name="txtPassword"
+            HorizontalAlignment="Right" 
+            Margin="0,260,300,0" 
+            Password=""
+            VerticalAlignment="Top" 
+            Width="340" Height="40"
+            FontFamily="Cascadia Code" FontSize="20" 
+            VerticalContentAlignment="Center" 
+            Background="{x:Null}"/>
+        <TextBlock 
+            HorizontalAlignment="Left" 
+            Margin="300,215,0,0" 
+            TextWrapping="Wrap" 
+            Text="Email" 
+            FontFamily="Cascadia Code" FontSize="20"
+            VerticalAlignment="Top"/>
+        <TextBlock 
+            HorizontalAlignment="Left" 
+            Margin="300,268,0,0" 
+            TextWrapping="Wrap" 
+            Text="Password" 
+            FontFamily="Cascadia Code" FontSize="20"
+            VerticalAlignment="Top"/>
+        <Button x:Name="btnQuit" Content="Quit"
+                VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Width="300" Height="50"
+                Cursor="Hand"
+                FontFamily="Cascadia Code" FontSize="25"
+                Background="Red" Foreground="White" BorderBrush="Red"
+                Margin="0,0,300,150" Click="btnQuit_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnLogin" Content="Login"
+            VerticalAlignment="Bottom" HorizontalAlignment="Left"
+            Width="300" Height="50"
+            Cursor="Hand"
+            FontFamily="Cascadia Code" FontSize="25"
+            Background="White" Foreground="Black" BorderBrush="Black"
+            Margin="300,0,0,150" Click="btnLogin_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center"
+                            VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBlock 
+            x:Name="txtError"
+            HorizontalAlignment="Center" 
+            Margin="0,345,0,0" 
+            TextWrapping="Wrap" Text="" 
+            VerticalAlignment="Top" Width="680"
+            Foreground="Red"
+            FontFamily="Cascadia Code" FontSize="25" TextAlignment="Center"/>
     </Grid>
 </Page>

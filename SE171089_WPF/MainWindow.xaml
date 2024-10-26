@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SE171089_WPF"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" 
         Title="MainWindow" Height="720" Width="1280">
     <Grid Background="AliceBlue">
         <Frame x:Name="frMain" 
                NavigationUIVisibility="Hidden" 
                Background="White"
-               Margin="200,100,0,0"
+               Margin="0,100,0,0"
                />
         <Button x:Name="btnUser" Content="User"
                 VerticalAlignment="Top" HorizontalAlignment="Left"
                 Width="200" Height="60"
                 FontFamily="Cascadia Code" FontSize="25"
                 Margin="0,100,0,0"
+                Visibility="Collapsed"
                 Cursor="Hand"
                 MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
                 Background="AliceBlue" BorderBrush="AliceBlue" Click="btnUser_Click">
@@ -38,6 +40,7 @@
                 FontFamily="Cascadia Code" FontSize="25"
                 Margin="0,160,0,0"
                 Cursor="Hand"
+                Visibility="Collapsed"
                 Background="AliceBlue" BorderBrush="AliceBlue" Click="btnCategory_Click"
                 MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
                 >
@@ -59,6 +62,7 @@
                 FontFamily="Cascadia Code" FontSize="25"
                 Margin="0,220,0,0"
                 Cursor="Hand"
+                Visibility="Collapsed"
                 Background="AliceBlue" BorderBrush="AliceBlue" Click="btnBook_Click"
                 MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
                 >
@@ -80,6 +84,7 @@
                 FontFamily="Cascadia Code" FontSize="25"
                 Margin="0,280,0,0"
                 Cursor="Hand"
+                Visibility="Collapsed"
                 Background="AliceBlue" BorderBrush="AliceBlue" Click="btnRent_Click"
                 MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
                 >
@@ -99,10 +104,9 @@
                 VerticalAlignment="Bottom" HorizontalAlignment="Left"
                 Width="200" Height="50"
                 Cursor="Hand"
+                Visibility="Collapsed"
                 FontFamily="Cascadia Code" FontSize="25"
-                Background="Red" Foreground="White" BorderBrush="Red" Click="btnQuit_Click"
-                MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
-                >
+                Background="Red" Foreground="White" BorderBrush="Red" Click="btnQuit_Click">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}"
