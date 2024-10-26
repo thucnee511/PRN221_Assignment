@@ -11,11 +11,37 @@
         <DataGrid x:Name="dtgUsers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="540,50,50,50"
                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                   AutoGenerateColumns="True" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
-        <TextBox HorizontalAlignment="Left" Margin="50,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" Height="20" />
-        <Button Content="Button" HorizontalAlignment="Left" Margin="495,550,0,0" VerticalAlignment="Top"/>
-        <Button Content="Search" HorizontalAlignment="Left" Margin="435,50,0,0" VerticalAlignment="Top" Width="100" Height="20">
-        </Button>
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontFamily="Cascadia Code" FontSize="12" SelectionChanged="dtgUsers_SelectionChanged"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Margin="50,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="350" Height="25" 
+                 FontFamily="Cascadia Code" FontSize="15" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="425,50,0,0" VerticalAlignment="Top" Width="100" Height="25"
+                FontFamily="Cascadia Code" FontSize="15"
+                Foreground="White" Background="BurlyWood" Click="btnSearch_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,99,0,0" TextWrapping="Wrap" Text="USER INFORMATION" VerticalAlignment="Top" Width="475" FontFamily="Cascadia Code" FontSize="48" TextAlignment="Center" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="100,200,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"
+                   FontSize="16" FontFamily="Cascadia Code"/>
+        <TextBlock HorizontalAlignment="Left" Margin="100,250,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"
+            FontSize="16" FontFamily="Cascadia Code"/>
+        <TextBlock HorizontalAlignment="Left" Margin="100,300,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"
+            FontSize="16" FontFamily="Cascadia Code"/>
+        <TextBlock HorizontalAlignment="Left" Margin="100,350,0,0" TextWrapping="Wrap" Text="Role" VerticalAlignment="Top"
+            FontSize="16" FontFamily="Cascadia Code"/>
+        <TextBlock HorizontalAlignment="Left" Margin="100,400,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top"
+            FontSize="16" FontFamily="Cascadia Code"/>
+        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="225,197,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" Height="25" FontFamily="Cascadia Code" FontSize="15" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="225,247,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" Height="25" FontFamily="Cascadia Code" FontSize="15" VerticalContentAlignment="Center"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment ="Left" Margin="225,300,0,0" VerticalAlignment="Top" Width="250" Height="24" FontFamily="Cascadia Code" FontSize="15" VerticalContentAlignment="Center" IsEnabled="False"/>
+        <TextBox x:Name="txtRole" IsReadOnly="True" HorizontalAlignment="Left" Margin="225,347,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" Height="25" FontFamily="Cascadia Code" FontSize="15" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtStatus" IsReadOnly="True" HorizontalAlignment="Left" Margin="225,397,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" Height="25" FontFamily="Cascadia Code" FontSize="15" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" Margin="375,545,0,0" VerticalAlignment="Top" Width="150" Height="25"
+            FontFamily="Cascadia Code" FontSize="15"
+            Foreground="White" Background="#FFFF5656"/>
+        <Button x:Name="btnAddNew" Content="Add new" HorizontalAlignment="Left" Margin="50,545,0,0" VerticalAlignment="Top" Width="150" Height="25"
+            FontFamily="Cascadia Code" FontSize="15"
+            Foreground="White" Background="BurlyWood" Click="btnAddNew_Click"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="212,545,0,0" VerticalAlignment="Top" Width="150" Height="25"
+            FontFamily="Cascadia Code" FontSize="15"
+            Foreground="White" Background="BurlyWood"/>
 
     </Grid>
 </Page>

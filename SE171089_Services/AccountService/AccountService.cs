@@ -1,5 +1,6 @@
 ﻿using SE171089_BusinessObject;
 using SE171089_Repositories.AccountRepository;
+using SE171089_Repositories.RoleRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,11 @@ namespace SE171089_Services.AccountService
     {
         private static AccountService instance;
         private IAccountRepository _accountRepository;
+        private IRoleRepository _roleRepository;
         private AccountService()
         {
             _accountRepository = AccountRepository.Instance;
+            _roleRepository = RoleRepository.Instance;
         }
         public static AccountService Instance
         {
@@ -33,6 +36,27 @@ namespace SE171089_Services.AccountService
             return _accountRepository.GetList();
         }
 
+        public Account GetByEmail(string email)
+        {
+            return _accountRepository.GetByEmail(email);
+        }
+
+        public Account GetByUsername(string username)
+        {
+            return _accountRepository.GetByUsername(username);
+        }
+
+        public string GetRoleName(int roleId)
+        {
+            Role role = _roleRepository.GetItem(roleId);
+            return role.Name;
+        }
+
+        public Account Insert(Account account)
+        {
+            return _accountRepository.Insert(account);
+        }
+
         public Account Login(string email, string password)
         {
             Account account = _accountRepository.GetByEmail(email);
@@ -48,6 +72,12 @@ namespace SE171089_Services.AccountService
                 }
             }
             throw new Exception("Wrong login credentials!!!");
+        }
+
+        public List<Account> Search(string keyword)
+        {
+            List<Account> accounts = _accountRepository.GetList();
+            return accounts.Where(a => a.Username.Contains(keyword) || a.Email.Contains(keyword)).ToList();
         }
     }
 }
