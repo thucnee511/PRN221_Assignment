@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SE171089_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="720" Width="1280">
     <Grid>
-
+        <Frame x:Name="frMain" NavigationUIVisibility="Hidden" Margin="0,0,0,0"/>
+        <Button x:Name="btnQuit" Content="Quit" 
+                Margin="0,150,0,0" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center"
+                Width="100" Height="30"
+                FontFamily="Cascadia Code" FontSize="15" Background="Red" BorderBrush="Red" Foreground="White"/>
+        <Button x:Name="btnRent" Content="Rent Book" 
+                Margin="0,50,0,0" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center"
+                Width="100" Height="31"
+                FontFamily="Cascadia Code" FontSize="15" Background="AliceBlue" BorderBrush="AliceBlue" Foreground="Black"/>
+        <Button x:Name="btnBook" Content="Manage Book" 
+                
+                HorizontalAlignment="Left" 
+                Margin="0,-50,0,0" 
+                VerticalAlignment="Center"
+                Width="100" Height="30"
+                FontFamily="Cascadia Code" FontSize="15" Background="AliceBlue" BorderBrush="AliceBlue" Foreground="Black"/>
+        <Button x:Name="btnUser" Content="Manage User" 
+                HorizontalAlignment="Left" 
+                Margin="0,-150,0,0" 
+                VerticalAlignment="Center"
+                Width="100" Height="30"
+                FontFamily="Cascadia Code" FontSize="15" Background="AliceBlue" BorderBrush="AliceBlue" Foreground="Black"/>
     </Grid>
 </Window>

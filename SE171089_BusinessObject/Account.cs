@@ -5,6 +5,11 @@ namespace SE171089_BusinessObject
 {
     public partial class Account
     {
+        public Account()
+        {
+            Rents = new HashSet<Rent>();
+        }
+
         public int Id { get; set; }
         public string Username { get; set; } = null!;
         public string Email { get; set; } = null!;
@@ -13,5 +18,6 @@ namespace SE171089_BusinessObject
         public int? Status { get; set; }
 
         public virtual Role Role { get; set; } = null!;
+        public virtual ICollection<Rent> Rents { get; set; }
     }
 }

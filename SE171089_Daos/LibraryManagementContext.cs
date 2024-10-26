@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
+using SE171089_BusinessObject;
 
-namespace SE171089_BusinessObject
+namespace SE171089_Daos
 {
     public partial class LibraryManagementContext : DbContext
     {
@@ -19,13 +21,24 @@ namespace SE171089_BusinessObject
         public virtual DbSet<Account> Accounts { get; set; } = null!;
         public virtual DbSet<Book> Books { get; set; } = null!;
         public virtual DbSet<Category> Categories { get; set; } = null!;
+        public virtual DbSet<Rent> Rents { get; set; } = null!;
+        public virtual DbSet<RentDetail> RentDetails { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
+        private string GetConnectionString()
+        {
+            IConfiguration config = new ConfigurationBuilder()
+                 .SetBasePath(Directory.GetCurrentDirectory())
+                 .AddJsonFile("appsettings.json", true, true)
+                 .Build();
+            var strConn = config.GetConnectionString("DBConnect");
 
+            return strConn;
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=(local);Uid=sa;Pwd=12345;Database=LibraryManagement; TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Server=(local);Uid=sa;Pwd=12345;Database=LibraryManagement;TrustServerCertificate=True");
             }
         }
 
@@ -80,10 +93,6 @@ namespace SE171089_BusinessObject
                     .IsUnicode(false)
                     .HasColumnName("name");
 
-                entity.Property(e => e.Price)
-                    .HasColumnName("price")
-                    .HasDefaultValueSql("((0.0))");
-
                 entity.Property(e => e.Quantity)
                     .HasColumnName("quantity")
                     .HasDefaultValueSql("((1))");
@@ -109,6 +118,59 @@ namespace SE171089_BusinessObject
                 entity.Property(e => e.Name)
                     .HasMaxLength(20)
                     .HasColumnName("name");
+            });
+
+            modelBuilder.Entity<Rent>(entity =>
+            {
+                entity.ToTable("rents");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.RentTime)
+                    .HasColumnType("date")
+                    .HasColumnName("rent_time")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.ReturnTime)
+                    .HasColumnType("date")
+                    .HasColumnName("return_time");
+
+                entity.Property(e => e.TotalQuatity)
+                    .HasColumnName("total_quatity")
+                    .HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.UserId).HasColumnName("user_id");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Rents)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_rents_accounts");
+            });
+
+            modelBuilder.Entity<RentDetail>(entity =>
+            {
+                entity.ToTable("rent_details");
+
+                entity.Property(e => e.Id)
+                    .ValueGeneratedNever()
+                    .HasColumnName("id");
+
+                entity.Property(e => e.BookId).HasColumnName("book_id");
+
+                entity.Property(e => e.Quantity).HasColumnName("quantity");
+
+                entity.Property(e => e.RentId).HasColumnName("rent_id");
+
+                entity.HasOne(d => d.Book)
+                    .WithMany(p => p.RentDetails)
+                    .HasForeignKey(d => d.BookId)
+                    .HasConstraintName("FK_rent_details_books");
+
+                entity.HasOne(d => d.Rent)
+                    .WithMany(p => p.RentDetails)
+                    .HasForeignKey(d => d.RentId)
+                    .HasConstraintName("FK_rent_details_rents");
             });
 
             modelBuilder.Entity<Role>(entity =>
