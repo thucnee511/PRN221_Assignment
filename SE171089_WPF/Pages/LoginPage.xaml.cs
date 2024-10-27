@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SE171089_WPF.Pages.AuthenPages
+namespace SE171089_WPF.Pages
 {
     /// <summary>
     /// Interaction logic for LoginPage.xaml

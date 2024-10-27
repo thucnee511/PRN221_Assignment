@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SE171089_BusinessObject;
-using SE171089_WPF.Pages.AuthenPages;
-using SE171089_WPF.Pages.UserPages;
+using SE171089_WPF.Pages;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -64,6 +63,7 @@ namespace SE171089_WPF
         private void btnUser_Click(object sender, RoutedEventArgs e)
         {
             ActiveButton(sender);
+            frMain.Content = new UserPage(CurrentAccount);
         }
 
         private void btnCategory_Click(object sender, RoutedEventArgs e)
@@ -96,12 +96,11 @@ namespace SE171089_WPF
             {
                 frMain.Margin = new Thickness(200, 100, 0, 0);
                 btnBook.Visibility = Visibility.Visible;
-                btnCategory.Visibility = Visibility.Visible;
                 btnRent.Visibility = Visibility.Visible;
                 btnUser.Visibility = Visibility.Visible;
                 btnQuit.Visibility = Visibility.Visible;
                 ActiveButton(btnUser);
-                frMain.Content = new UserPage();
+                frMain.Content = new UserPage(CurrentAccount);
             }
             else
             {

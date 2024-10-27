@@ -1,5 +1,6 @@
 ﻿using SE171089_BusinessObject;
 using SE171089_Repositories.AccountRepository;
+using SE171089_Repositories.RentRepositopry;
 using SE171089_Repositories.RoleRepository;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,12 @@ namespace SE171089_Services.AccountService
         private static AccountService instance;
         private IAccountRepository _accountRepository;
         private IRoleRepository _roleRepository;
+        private IRentRepository _rentRepository;
         private AccountService()
         {
             _accountRepository = AccountRepository.Instance;
             _roleRepository = RoleRepository.Instance;
+            _rentRepository = RentRepository.Instance;
         }
         public static AccountService Instance
         {
@@ -78,6 +81,21 @@ namespace SE171089_Services.AccountService
         {
             List<Account> accounts = _accountRepository.GetList();
             return accounts.Where(a => a.Username.Contains(keyword) || a.Email.Contains(keyword)).ToList();
+        }
+
+        public Account Update(Account account)
+        {
+            return _accountRepository.Update(account);
+        }
+
+        public Account Delete(int id)
+        {
+            return _accountRepository.Delete(id);
+        }
+
+        public List<Account> GetActiveAccounts()
+        {
+            return _accountRepository.GetList().Where(a => a.Status == 1).ToList();
         }
     }
 }

@@ -40,7 +40,8 @@ namespace SE171089_Daos
         public Account Delete(int id)
         {
             Account item = GetItem(id);
-            context.Accounts.Remove(item);
+            item.Status = 0;
+            context.Accounts.Update(item);
             context.SaveChanges();
             return item;
         }

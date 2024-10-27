@@ -1,9 +1,9 @@
-﻿<Page x:Class="SE171089_WPF.Pages.AuthenPages.LoginPage"
+﻿<Page x:Class="SE171089_WPF.Pages.LoginPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SE171089_WPF.Pages.AuthenPages"
+      xmlns:local="clr-namespace:SE171089_WPF.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="620" d:DesignWidth="1280"
       Title="LoginPage">

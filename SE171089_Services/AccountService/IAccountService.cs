@@ -11,10 +11,13 @@ namespace SE171089_Services.AccountService
     {
         Account Login(string email, string password);
         List<Account> GetAccounts();
+        List<Account> GetActiveAccounts();
         string GetRoleName(int roleId);
         List<Account> Search(string keyword);
         Account GetByUsername(string username);
         Account GetByEmail(string email);
         Account Insert(Account account);
+        Account Update(Account account);
+        Account Delete(int id);
     }
 }

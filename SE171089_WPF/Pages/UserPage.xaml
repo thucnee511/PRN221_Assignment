@@ -1,9 +1,9 @@
-﻿<Page x:Class="SE171089_WPF.Pages.UserPages.UserPage"
+﻿<Page x:Class="SE171089_WPF.Pages.UserPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SE171089_WPF.Pages.UserPages"
+      xmlns:local="clr-namespace:SE171089_WPF.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="620" d:DesignWidth="1080"
       Title="UserPage">
@@ -35,13 +35,13 @@
         <TextBox x:Name="txtStatus" IsReadOnly="True" HorizontalAlignment="Left" Margin="225,397,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" Height="25" FontFamily="Cascadia Code" FontSize="15" VerticalContentAlignment="Center"/>
         <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" Margin="375,545,0,0" VerticalAlignment="Top" Width="150" Height="25"
             FontFamily="Cascadia Code" FontSize="15"
-            Foreground="White" Background="#FFFF5656"/>
+            Foreground="White" Background="#FFFF5656" Click="btnRemove_Click"/>
         <Button x:Name="btnAddNew" Content="Add new" HorizontalAlignment="Left" Margin="50,545,0,0" VerticalAlignment="Top" Width="150" Height="25"
             FontFamily="Cascadia Code" FontSize="15"
             Foreground="White" Background="BurlyWood" Click="btnAddNew_Click"/>
         <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="212,545,0,0" VerticalAlignment="Top" Width="150" Height="25"
             FontFamily="Cascadia Code" FontSize="15"
-            Foreground="White" Background="BurlyWood"/>
+            Foreground="White" Background="BurlyWood" Click="btnUpdate_Click"/>
 
     </Grid>
 </Page>

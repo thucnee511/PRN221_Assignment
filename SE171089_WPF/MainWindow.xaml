@@ -34,33 +34,11 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="btnCategory" Content="Category"
-                VerticalAlignment="Top" HorizontalAlignment="Left"
-                Width="200" Height="60"
-                FontFamily="Cascadia Code" FontSize="25"
-                Margin="0,160,0,0"
-                Cursor="Hand"
-                Visibility="Collapsed"
-                Background="AliceBlue" BorderBrush="AliceBlue" Click="btnCategory_Click"
-                MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
-                >
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="1"
-                    CornerRadius="30,0,0,30">
-                        <ContentPresenter HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
         <Button x:Name="btnBook" Content="Book"
                 VerticalAlignment="Top" HorizontalAlignment="Left"
                 Width="200" Height="60"
                 FontFamily="Cascadia Code" FontSize="25"
-                Margin="0,220,0,0"
+                Margin="0,160,0,0"
                 Cursor="Hand"
                 Visibility="Collapsed"
                 Background="AliceBlue" BorderBrush="AliceBlue" Click="btnBook_Click"
@@ -82,7 +60,7 @@
                 VerticalAlignment="Top" HorizontalAlignment="Left"
                 Width="200" Height="60"
                 FontFamily="Cascadia Code" FontSize="25"
-                Margin="0,280,0,0"
+                Margin="0,220,0,0"
                 Cursor="Hand"
                 Visibility="Collapsed"
                 Background="AliceBlue" BorderBrush="AliceBlue" Click="btnRent_Click"

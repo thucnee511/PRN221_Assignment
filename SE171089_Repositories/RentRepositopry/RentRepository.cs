@@ -27,6 +27,11 @@ namespace SE171089_Repositories.RentRepositopry
         public Rent Delete(int id) => rentDao.Delete(id);
         public Rent GetItem(int id) => rentDao.GetItem(id);
         public List<Rent> GetList() => rentDao.GetList();
+
+        public List<Rent> GetListByUserId(int userId)
+        {
+            return rentDao.GetList().Where(rent => rent.UserId == userId).ToList();
+        }
         public Rent Insert(Rent item) => rentDao.Insert(item);
         public Rent Update(Rent item) => rentDao.Update(item);
     }
