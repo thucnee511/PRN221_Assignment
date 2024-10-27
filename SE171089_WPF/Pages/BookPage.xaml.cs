@@ -23,6 +23,7 @@ namespace SE171089_WPF.Pages
     public partial class BookPage : Page
     {
         private IBookService _bookService;
+        private Book _selectedBook;
         public BookPage()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace SE171089_WPF.Pages
         }
         private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            var columnsToHide = new List<string> { "RentDetails" , "CateId"};
+            var columnsToHide = new List<string> { "RentDetails", "CateId" };
             if (columnsToHide.Contains(e.Column.Header.ToString()))
             {
                 e.Column.Visibility = Visibility.Collapsed;
@@ -52,6 +53,27 @@ namespace SE171089_WPF.Pages
         private void LoadData(List<Book> books)
         {
             dtgBookData.ItemsSource = books;
+            List<Category> categories = _bookService.GetCategories();
+            cbSearchCategory.ItemsSource = categories;
+            cbSearchCategory.DisplayMemberPath = "Name";
+        }
+        private void DisplayBookInfo()
+        {
+            if (_selectedBook != null)
+            {
+                txtName.Text = _selectedBook.Name;
+                txtTitle.Text = _selectedBook.Title;
+                txtDescription.Text = _selectedBook.Description;
+                txtQuantity.Text = _selectedBook.Quantity.ToString();
+                cbCategory.ItemsSource = _bookService.GetCategories();
+                cbCategory.DisplayMemberPath = "Name";
+                cbCategory.SelectedIndex = _selectedBook.Cate.Id -1;
+            }
+        }
+        private void dtgBookData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _selectedBook = dtgBookData.SelectedItem as Book;
+            DisplayBookInfo();
         }
     }
 }

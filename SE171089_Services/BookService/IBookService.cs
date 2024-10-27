@@ -10,5 +10,6 @@ namespace SE171089_Services.BookService
     public interface IBookService
     {
         List<Book> GetBooks();
+        List<Category> GetCategories();
     }
 }

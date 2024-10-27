@@ -1,5 +1,6 @@
 ﻿using SE171089_BusinessObject;
 using SE171089_Repositories.BookRepository;
+using SE171089_Repositories.CategoryRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,11 @@ namespace SE171089_Services.BookService
     {
         private static BookService _instance;
         private IBookRepository _bookRepository;
+        private ICategoryRepository _categoryRepository;
         private BookService()
         {
             _bookRepository = BookRepository.Instance;
+            _categoryRepository = CategoryRepository.Instance;
         }
         public static BookService Instance
         {
@@ -31,6 +34,11 @@ namespace SE171089_Services.BookService
         public List<Book> GetBooks()
         {
             return _bookRepository.GetList();
+        }
+
+        public List<Category> GetCategories()
+        {
+            return _categoryRepository.GetList();
         }
     }
 }
