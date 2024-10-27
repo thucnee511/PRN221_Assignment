@@ -38,7 +38,7 @@ namespace SE171089_Daos
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=(local);Uid=sa;Pwd=12345;Database=LibraryManagement;TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer(GetConnectionString());
             }
         }
 
@@ -107,6 +107,7 @@ namespace SE171089_Daos
                     .HasForeignKey(d => d.CateId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_books_categories");
+                
             });
 
             modelBuilder.Entity<Category>(entity =>

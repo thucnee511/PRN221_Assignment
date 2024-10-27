@@ -8,8 +8,33 @@
       d:DesignHeight="620" d:DesignWidth="1080"
       Title="BookPage">
     <Grid Background="White">
-        <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" Width="120" FontFamily="Cascadia Code"/>
+        <ComboBox x:Name="cbSearchCategory" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" Width="150" FontFamily="Cascadia Code"/>
         <DataGrid x:Name="dtgBookData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="540,50,50,50"
+                  AutoGenerateColumns="True" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
                   FontFamily="Cascadia Code" FontSize="12"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Margin="200,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="289" Height="20"
+                 FontFamily="Cascadia Code" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="489,50,0,0" VerticalAlignment="Top"
+                FontFamily="Cascadia Code" Height="20" Background="BurlyWood"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,75,0,0" TextWrapping="Wrap" Text="BOOK MANAGEMENT" VerticalAlignment="Top" Width="485" FontFamily="Cascadia Code" FontSize="48" TextAlignment="Center" FontWeight="Bold"/>
+        <TextBox x:Name="txtTile" HorizontalAlignment="Left" Margin="200,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300"
+                 FontFamily="Cascadia Code" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="85,140,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" Width="115"
+                   FontFamily="Cascadia Code" FontSize="15"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="200,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300"
+            FontFamily="Cascadia Code" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="85,180,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="115"
+            FontFamily="Cascadia Code" FontSize="15"/>
+        <TextBox x:Name="txtDescription" HorizontalAlignment="Left" Margin="200,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300"
+            FontFamily="Cascadia Code" FontSize="15" Height="120" TextAlignment="Justify"/>
+        <TextBlock HorizontalAlignment="Left" Margin="85,260,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="115"
+            FontFamily="Cascadia Code" FontSize="15"/>
+        <TextBox x:Name="txtQuantity" HorizontalAlignment="Left" Margin="200,400,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300"
+            FontFamily="Cascadia Code" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="85,400,0,0" TextWrapping="Wrap" Text="Quantity" VerticalAlignment="Top" Width="115"
+            FontFamily="Cascadia Code" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Margin="85,220,0,0" TextWrapping="Wrap" Text="Category" VerticalAlignment="Top" Width="115"
+            FontFamily="Cascadia Code" FontSize="15"/>
+        <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Margin="200,220,0,0" VerticalAlignment="Top" Width="300" FontFamily="Cascadia Code"/>
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
-﻿using SE171089_BusinessObject;
+﻿using Microsoft.EntityFrameworkCore;
+using SE171089_BusinessObject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,8 @@ namespace SE171089_Daos
                 return instance;
             }
         }
-        public List<Account> GetList() => context.Accounts.ToList();
-        public Account GetItem(int id) => context.Accounts.SingleOrDefault(account => account.Id == id);
+        public List<Account> GetList() => context.Accounts.Include(a => a.Role).ToList();
+        public Account GetItem(int id) => context.Accounts.Include(a => a.Role).SingleOrDefault(account => account.Id == id);
         public Account Insert(Account item)
         {
             context.Accounts.Add(item);

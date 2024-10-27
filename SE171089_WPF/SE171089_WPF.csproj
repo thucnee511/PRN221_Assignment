@@ -18,8 +18,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\UserPages\" />
-  </ItemGroup>
-
 </Project>

@@ -66,14 +66,10 @@ namespace SE171089_WPF
             frMain.Content = new UserPage(CurrentAccount);
         }
 
-        private void btnCategory_Click(object sender, RoutedEventArgs e)
-        {
-            ActiveButton(sender);
-        }
-
         private void btnBook_Click(object sender, RoutedEventArgs e)
         {
             ActiveButton(sender);
+            frMain.Content = new BookPage();
         }
 
         private void btnRent_Click(object sender, RoutedEventArgs e)
