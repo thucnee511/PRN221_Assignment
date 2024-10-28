@@ -12,6 +12,7 @@ namespace SE171089_Services.BookService
         Book AddBook(Book book);
         List<Book> GetBooks();
         List<Category> GetCategories();
+        Book Remove(Book selectedBook);
         List<Book> Search(string keyword, int cateId);
         Book Update(Book selectedBook);
     }

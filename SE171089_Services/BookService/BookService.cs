@@ -46,6 +46,11 @@ namespace SE171089_Services.BookService
             return _categoryRepository.GetList();
         }
 
+        public Book Remove(Book selectedBook)
+        {
+            return _bookRepository.Delete(selectedBook.Id);
+        }
+
         public List<Book> Search(string keyword, int cateId)
         {
             return _bookRepository.GetList().Where(book =>

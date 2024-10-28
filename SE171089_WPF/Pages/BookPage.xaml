@@ -38,7 +38,7 @@
         <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Margin="200,263,0,0" VerticalAlignment="Top" Width="300" FontFamily="Cascadia Code"/>
         <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" Margin="375,545,0,0" VerticalAlignment="Top" Width="150" Height="25"
             FontFamily="Cascadia Code" FontSize="15"
-            Foreground="White" Background="#FFFF5656" />
+            Foreground="White" Background="#FFFF5656" Click="btnRemove_Click" />
         <Button x:Name="btnAddNew" Content="Add new" HorizontalAlignment="Left" Margin="50,545,0,0" VerticalAlignment="Top" Width="150" Height="25"
             FontFamily="Cascadia Code" FontSize="15"
             Foreground="White" Background="BurlyWood" Click="btnAddNew_Click"/>

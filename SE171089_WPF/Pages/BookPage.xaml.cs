@@ -69,6 +69,14 @@ namespace SE171089_WPF.Pages
                 txtQuantity.Text = _selectedBook.Quantity.ToString();
                 cbCategory.SelectedIndex = _selectedBook.Cate.Id - 1;
             }
+            else
+            {
+                txtDescription.Text = "";
+                txtName.Text = "";
+                txtQuantity.Text = "";
+                cbCategory.SelectedIndex = -1;
+                txtTitle.Text = "";
+            }
         }
         private void dtgBookData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -153,6 +161,25 @@ namespace SE171089_WPF.Pages
                 _selectedBook.Quantity = quantity;
                 _selectedBook.CateId = cateId;
                 _selectedBook = _bookService.Update(_selectedBook);
+                LoadData(_bookService.GetBooks());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (_selectedBook == null)
+                {
+                    throw new Exception("Please select a book to remove!!!");
+                }
+                _bookService.Remove(_selectedBook);
+                _selectedBook = null;
+                DisplayBookInfo();
                 LoadData(_bookService.GetBooks());
             }
             catch (Exception ex)
