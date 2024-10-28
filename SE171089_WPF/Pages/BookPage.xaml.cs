@@ -56,6 +56,8 @@ namespace SE171089_WPF.Pages
             List<Category> categories = _bookService.GetCategories();
             cbSearchCategory.ItemsSource = categories;
             cbSearchCategory.DisplayMemberPath = "Name";
+            cbCategory.ItemsSource = _bookService.GetCategories();
+            cbCategory.DisplayMemberPath = "Name";
         }
         private void DisplayBookInfo()
         {
@@ -65,15 +67,56 @@ namespace SE171089_WPF.Pages
                 txtTitle.Text = _selectedBook.Title;
                 txtDescription.Text = _selectedBook.Description;
                 txtQuantity.Text = _selectedBook.Quantity.ToString();
-                cbCategory.ItemsSource = _bookService.GetCategories();
-                cbCategory.DisplayMemberPath = "Name";
-                cbCategory.SelectedIndex = _selectedBook.Cate.Id -1;
+                cbCategory.SelectedIndex = _selectedBook.Cate.Id - 1;
             }
         }
         private void dtgBookData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _selectedBook = dtgBookData.SelectedItem as Book;
             DisplayBookInfo();
+        }
+
+        private void btnAddNew_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string title = txtTitle.Text;
+                string name = txtName.Text;
+                string description = txtDescription.Text;
+                int quantity = int.Parse(txtQuantity.Text);
+                int cateId = cbCategory.SelectedIndex + 1;
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description))
+                {
+                    throw new Exception("Title, Name and Description are required!!!");
+                }
+                if (quantity <= 0)
+                {
+                    throw new Exception("Quantity must be greater than 0!!!");
+                }
+                if (cateId <= 0)
+                {
+                    throw new Exception("Category is required!!!");
+                }
+                Book book = new Book
+                {
+                    Name = name,
+                    Title = title,
+                    Description = description,
+                    Quantity = quantity,
+                    CateId = cateId
+                };
+                _selectedBook = _bookService.AddBook(book);
+                LoadData(_bookService.GetBooks());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

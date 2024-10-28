@@ -30,7 +30,12 @@ namespace SE171089_Services.BookService
                 return _instance;
             }
         }
-        
+
+        public Book AddBook(Book book)
+        {
+            return _bookRepository.Insert(book);
+        }
+
         public List<Book> GetBooks()
         {
             return _bookRepository.GetList();

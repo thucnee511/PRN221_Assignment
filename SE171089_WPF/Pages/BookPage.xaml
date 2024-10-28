@@ -41,7 +41,7 @@
             Foreground="White" Background="#FFFF5656" />
         <Button x:Name="btnAddNew" Content="Add new" HorizontalAlignment="Left" Margin="50,545,0,0" VerticalAlignment="Top" Width="150" Height="25"
             FontFamily="Cascadia Code" FontSize="15"
-            Foreground="White" Background="BurlyWood"/>
+            Foreground="White" Background="BurlyWood" Click="btnAddNew_Click"/>
         <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="212,545,0,0" VerticalAlignment="Top" Width="150" Height="25"
             FontFamily="Cascadia Code" FontSize="15"
             Foreground="White" Background="BurlyWood"/>
