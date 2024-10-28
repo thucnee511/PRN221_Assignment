@@ -45,5 +45,20 @@ namespace SE171089_Services.BookService
         {
             return _categoryRepository.GetList();
         }
+
+        public List<Book> Search(string keyword, int cateId)
+        {
+            return _bookRepository.GetList().Where(book =>
+            {
+                string _book = book.Name.ToLower() + book.Title.ToLower();
+                return _book.Contains(keyword.ToLower()) && (cateId == 0 || book.CateId == cateId);
+            }).ToList();
+        }
+
+        public Book Update(Book selectedBook)
+        {
+            _bookRepository.Update(selectedBook);
+            return _bookRepository.GetItem(selectedBook.Id);
+        }
     }
 }

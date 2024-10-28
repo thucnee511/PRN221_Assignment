@@ -15,7 +15,7 @@
         <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Margin="200,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="289" Height="20"
                  FontFamily="Cascadia Code" VerticalContentAlignment="Center"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="489,50,0,0" VerticalAlignment="Top"
-                FontFamily="Cascadia Code" Height="20" Background="BurlyWood"/>
+                FontFamily="Cascadia Code" Height="20" Background="BurlyWood" Click="btnSearch_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="50,96,0,0" TextWrapping="Wrap" Text="BOOK MANAGEMENT" VerticalAlignment="Top" Width="485" FontFamily="Cascadia Code" FontSize="48" TextAlignment="Center" FontWeight="Bold"/>
         <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="200,183,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300"
                  FontFamily="Cascadia Code" FontSize="15"/>
@@ -44,6 +44,6 @@
             Foreground="White" Background="BurlyWood" Click="btnAddNew_Click"/>
         <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="212,545,0,0" VerticalAlignment="Top" Width="150" Height="25"
             FontFamily="Cascadia Code" FontSize="15"
-            Foreground="White" Background="BurlyWood"/>
+            Foreground="White" Background="BurlyWood" Click="btnUpdate_Click"/>
     </Grid>
 </Page>

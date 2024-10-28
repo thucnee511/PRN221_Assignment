@@ -116,7 +116,49 @@ namespace SE171089_WPF.Pages
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            int cateId = cbSearchCategory.SelectedIndex + 1;
+            string keyword = txtSearch.Text;
+            List<Book> books = _bookService.Search(keyword, cateId);
+            LoadData(books);
+        }
 
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (_selectedBook == null)
+                {
+                    throw new Exception("Please select a book to update!!!");
+                }
+                string title = txtTitle.Text;
+                string name = txtName.Text;
+                string description = txtDescription.Text;
+                int quantity = int.Parse(txtQuantity.Text);
+                int cateId = cbCategory.SelectedIndex + 1;
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description))
+                {
+                    throw new Exception("Title, Name and Description are required!!!");
+                }
+                if (quantity <= 0)
+                {
+                    throw new Exception("Quantity must be greater than 0!!!");
+                }
+                if (cateId <= 0)
+                {
+                    throw new Exception("Category is required!!!");
+                }
+                _selectedBook.Name = name;
+                _selectedBook.Title = title;
+                _selectedBook.Description = description;
+                _selectedBook.Quantity = quantity;
+                _selectedBook.CateId = cateId;
+                _selectedBook = _bookService.Update(_selectedBook);
+                LoadData(_bookService.GetBooks());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
