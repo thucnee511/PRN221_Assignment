@@ -12,6 +12,7 @@ namespace SE171089_Services.AccountService
         Account Login(string email, string password);
         List<Account> GetAccounts();
         List<Account> GetActiveAccounts();
+        Account GetAccount(int id);
         string GetRoleName(int roleId);
         List<Account> Search(string keyword);
         Account GetByUsername(string username);

@@ -97,5 +97,10 @@ namespace SE171089_Services.AccountService
         {
             return _accountRepository.GetList().Where(a => a.Status == 1).ToList();
         }
+
+        public Account GetAccount(int id)
+        {
+            return _accountRepository.GetItem(id);
+        }
     }
 }

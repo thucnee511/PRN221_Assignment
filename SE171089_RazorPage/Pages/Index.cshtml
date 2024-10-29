@@ -2,6 +2,18 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    int RoleId = Convert.ToInt32(HttpContext.Session.GetString("RoleId"));
+    if(RoleId == 0){
+        Response.Redirect("/Login");
+    }
+    else if(RoleId == 1 || RoleId == 2)
+    {
+        Response.Redirect("/AccountPage/Index");
+    }
+    else
+    {
+        Response.Redirect("/PermissionDenied");
+    }
 }
 
 <div class="text-center">
