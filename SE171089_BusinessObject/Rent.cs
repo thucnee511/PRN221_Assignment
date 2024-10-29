@@ -15,6 +15,7 @@ namespace SE171089_BusinessObject
         public int? TotalQuatity { get; set; }
         public DateTime? RentTime { get; set; }
         public DateTime? ReturnTime { get; set; }
+        public string? Status { get; set; }
 
         public virtual Account User { get; set; } = null!;
         public virtual ICollection<RentDetail> RentDetails { get; set; }

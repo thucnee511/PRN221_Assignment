@@ -75,6 +75,7 @@ namespace SE171089_WPF
         private void btnRent_Click(object sender, RoutedEventArgs e)
         {
             ActiveButton(sender);
+            frMain.Content = new RentPage();
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)

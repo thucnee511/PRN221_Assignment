@@ -24,6 +24,7 @@ namespace SE171089_Daos
         public virtual DbSet<Rent> Rents { get; set; } = null!;
         public virtual DbSet<RentDetail> RentDetails { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
+
         private string GetConnectionString()
         {
             IConfiguration config = new ConfigurationBuilder()
@@ -107,7 +108,6 @@ namespace SE171089_Daos
                     .HasForeignKey(d => d.CateId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_books_categories");
-                
             });
 
             modelBuilder.Entity<Category>(entity =>
@@ -136,6 +136,11 @@ namespace SE171089_Daos
                     .HasColumnType("date")
                     .HasColumnName("return_time");
 
+                entity.Property(e => e.Status)
+                    .HasMaxLength(10)
+                    .HasColumnName("status")
+                    .HasDefaultValueSql("('renting')");
+
                 entity.Property(e => e.TotalQuatity)
                     .HasColumnName("total_quatity")
                     .HasDefaultValueSql("((1))");
@@ -153,9 +158,7 @@ namespace SE171089_Daos
             {
                 entity.ToTable("rent_details");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("id");
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.BookId).HasColumnName("book_id");
 

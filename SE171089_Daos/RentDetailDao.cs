@@ -1,4 +1,5 @@
-﻿using SE171089_BusinessObject;
+﻿using Microsoft.EntityFrameworkCore;
+using SE171089_BusinessObject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,8 @@ namespace SE171089_Daos
                 return instance;
             }
         }
-        public List<RentDetail> GetList() => context.RentDetails.ToList();
-        public RentDetail GetItem(int id) => context.RentDetails.SingleOrDefault(rentDetail => rentDetail.Id == id);
+        public List<RentDetail> GetList() => context.RentDetails.Include(rd => rd.Book).ToList();
+        public RentDetail GetItem(int id) => context.RentDetails.Include(rd => rd.Book).SingleOrDefault(rentDetail => rentDetail.Id == id);
         public RentDetail Insert(RentDetail item)
         {
             context.RentDetails.Add(item);

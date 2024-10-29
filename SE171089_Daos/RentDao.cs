@@ -1,4 +1,5 @@
-﻿using SE171089_BusinessObject;
+﻿using Microsoft.EntityFrameworkCore;
+using SE171089_BusinessObject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,14 @@ namespace SE171089_Daos
                 return instance;
             }
         }
-        public List<Rent> GetList() => context.Rents.ToList();
-        public Rent GetItem(int id) => context.Rents.SingleOrDefault(rent => rent.Id == id);
+        public List<Rent> GetList() => context.Rents.Include(r => r.RentDetails).Include(r => r.User).ToList();
+        public Rent GetItem(int id) => context.Rents.Include(r => r.RentDetails).Include(r => r.User).SingleOrDefault(rent => rent.Id == id);
         public Rent Insert(Rent item)
         {
             context.Rents.Add(item);
             context.SaveChanges();
+            //get the lastest rent
+            item = context.Rents.OrderByDescending(r => r.Id).FirstOrDefault();
             return item;
         }
         public Rent Update(Rent item)

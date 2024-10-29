@@ -28,7 +28,7 @@ namespace SE171089_Repositories.RentDetailRepository
         public RentDetail GetItem(int id) => rentDetailDao.GetItem(id);
         public List<RentDetail> GetList()
         {
-            throw new NotImplementedException();
+            return rentDetailDao.GetList();
         }
         public List<RentDetail> GetRentDetails(int rentId) 
             => rentDetailDao.GetList().Where(x => x.RentId == rentId).ToList();

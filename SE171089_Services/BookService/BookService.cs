@@ -36,6 +36,11 @@ namespace SE171089_Services.BookService
             return _bookRepository.Insert(book);
         }
 
+        public Book GetBookById(int id)
+        {
+            return _bookRepository.GetItem(id);
+        }
+
         public List<Book> GetBooks()
         {
             return _bookRepository.GetList();

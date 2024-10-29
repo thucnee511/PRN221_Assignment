@@ -1,0 +1,75 @@
+﻿<Page x:Class="SE171089_WPF.Pages.RentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SE171089_WPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="620" d:DesignWidth="1080"
+      Title="RentPage">
+
+    <Grid Background="White">
+        <DataGrid x:Name="dtgRent" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="540,50,50,50"
+                  FontFamily="Cascadia Code" AutoGenerateColumns="True" AutoGeneratingColumn="dtgRent_AutoGeneratingColumn" SelectionChanged="dtgRent_SelectionChanged"/>
+        <ComboBox x:Name="cbUser" HorizontalAlignment="Left" Margin="285,131,0,0" VerticalAlignment="Top" Width="200"
+                  FontFamily="Cascadia Code" SelectionChanged="cbUser_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,50,0,0" TextWrapping="Wrap" Text="Rent Book Management" VerticalAlignment="Top" Width="485"
+                   FontFamily="Cascadia Code" FontWeight="Bold" FontSize="40" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="100,134,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"
+                   FontFamily="Cascadia Code"/>
+        <ComboBox x:Name="cbBook" HorizontalAlignment="Left" Margin="285,289,0,0" VerticalAlignment="Top" Width="200"
+            FontFamily="Cascadia Code" SelectionChanged="cbBook_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="101,292,0,0" TextWrapping="Wrap" Text="Book Title" VerticalAlignment="Top"
+            FontFamily="Cascadia Code"/>
+        <TextBox x:Name="txtSearchUser" HorizontalAlignment="Left" Margin="100,101,0,0" TextWrapping="Wrap" Text="" 
+                 VerticalAlignment="Top" Width="304" FontFamily="Cascadia Code" Height="18"
+                 VerticalContentAlignment="Center"/>
+        <Button x:Name="btnSearchUser" Content="Search User" HorizontalAlignment="Left" Margin="404,101,0,0" VerticalAlignment="Top"
+                FontFamily="Cascadia Code" Background="BurlyWood" Click="btnSearchUser_Click"/>
+        <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Margin="101,264,0,0" VerticalAlignment="Top" Width="100"
+            FontFamily="Cascadia Code"/>
+        <TextBox x:Name="txtSearchBook" HorizontalAlignment="Left" Margin="200,264,0,0" TextWrapping="Wrap" Text="" 
+            VerticalAlignment="Top" Width="204" Height="20" FontFamily="Cascadia Code"
+                 VerticalContentAlignment="Center"/>
+        <Button x:Name="btnSearchBook" Content="Search Book" HorizontalAlignment="Left" Margin="404,264,0,0" VerticalAlignment="Top"
+            FontFamily="Cascadia Code" Background="BurlyWood" Height="20" Click="btnSearchBook_Click"/>
+        <DataGrid x:Name="dtgRentDetail" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="100,339,595,91"
+                  FontFamily="Cascadia Code" AutoGenerateColumns="True" AutoGeneratingColumn="dtgRentDetail_AutoGeneratingColumn" SelectionChanged="dtgRentDetail_SelectionChanged"/>
+        <Button x:Name="btnNewDetail" Content="New Rent" HorizontalAlignment="Left" Margin="364,314,0,0" VerticalAlignment="Top" Width="121" Height="20"
+            FontFamily="Cascadia Code" FontSize="15"
+            Foreground="White" Background="#FFFF5656" Click="btnNewDetail_Click" />
+        <Button x:Name="btnAddDetail" Content="Add" HorizontalAlignment="Left" Margin="100,314,0,0" VerticalAlignment="Top" Width="121" Height="20"
+            FontFamily="Cascadia Code" FontSize="15"
+            Foreground="White" Background="BurlyWood" Click="btnAddDetail_Click"/>
+        <Button x:Name="btnRemoveDetail" Content="Remove" HorizontalAlignment="Left" Margin="233,314,0,0" VerticalAlignment="Top" Width="121" Height="20"
+            FontFamily="Cascadia Code" FontSize="15"
+            Foreground="White" Background="BurlyWood" Click="btnRemoveDetail_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="101,194,0,0" TextWrapping="Wrap" Text="Rent Details" VerticalAlignment="Top" Width="385"
+                   TextAlignment="Center" FontFamily="Cascadia Code"/>
+        <TextBox x:Name="txtReturnDate" HorizontalAlignment="Left" Margin="404,222,0,0" TextWrapping="Wrap" Text="10-11-2024" VerticalAlignment="Top" Width="81"
+                 FontFamily="Cascadia Code" FontSize="12" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="286,222,0,0" TextWrapping="Wrap" Text="Return Date" VerticalAlignment="Top"
+                   FontSize="12" FontFamily="Cascadia Code" Height="16"/>
+        <TextBox x:Name="txtRentDate" HorizontalAlignment="Left" Margin="200,222,0,0" TextWrapping="Wrap" Text="10-11-2024" VerticalAlignment="Top" Width="81"
+            FontFamily="Cascadia Code" FontSize="12" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="100,222,0,0" TextWrapping="Wrap" Text="Rent Date" VerticalAlignment="Top"
+            FontSize="12" FontFamily="Cascadia Code" Height="16"/>
+        <TextBox x:Name="txtStatus" HorizontalAlignment="Left" Margin="404,243,0,0" TextWrapping="Wrap" Text="10-11-2024" VerticalAlignment="Top" Width="81"
+            FontFamily="Cascadia Code" FontSize="12" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="286,243,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top"
+            FontSize="12" FontFamily="Cascadia Code" Height="16"/>
+        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Margin="200,243,0,0" TextWrapping="Wrap" Text="10-11-2024" VerticalAlignment="Top" Width="81"
+            FontFamily="Cascadia Code" FontSize="12" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="100,243,0,0" TextWrapping="Wrap" Text="Total" VerticalAlignment="Top"
+            FontSize="12" FontFamily="Cascadia Code" Height="16"/>
+        <Button x:Name="btnRemoveRent" Content="Remove" HorizontalAlignment="Left" Margin="364,550,0,0" VerticalAlignment="Top" Width="121" Height="20"
+            FontFamily="Cascadia Code" FontSize="15"
+            Foreground="White" Background="#FFFF5656" Click="btnRemoveRent_Click" />
+        <Button x:Name="btnAddRent" Content="Add Rent" HorizontalAlignment="Left" Margin="100,550,0,0" VerticalAlignment="Top" Width="121" Height="20"
+            FontFamily="Cascadia Code" FontSize="15"
+            Foreground="White" Background="BurlyWood" Click="btnAddRent_Click"/>
+        <Button x:Name="btnReturnRent" Content="Mark Returned" HorizontalAlignment="Left" Margin="233,550,0,0" VerticalAlignment="Top" Width="121" Height="20"
+            FontFamily="Cascadia Code" FontSize="15"
+            Foreground="White" Background="BurlyWood" Click="btnReturnRent_Click"/>
+    </Grid>
+</Page>

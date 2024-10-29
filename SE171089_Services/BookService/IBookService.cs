@@ -10,6 +10,7 @@ namespace SE171089_Services.BookService
     public interface IBookService
     {
         Book AddBook(Book book);
+        Book GetBookById(int id);
         List<Book> GetBooks();
         List<Category> GetCategories();
         Book Remove(Book selectedBook);
