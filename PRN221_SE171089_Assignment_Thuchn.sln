@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SE171089_Services", "SE1710
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SE171089_Utilities", "SE171089_Utilities\SE171089_Utilities.csproj", "{3C0DB882-61A0-4F5F-8D4B-0A385A931C60}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SE171089_RazorPage", "SE171089_RazorPage\SE171089_RazorPage.csproj", "{31A6ABBA-B555-4DB8-B88B-F04BC0B537B3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{3C0DB882-61A0-4F5F-8D4B-0A385A931C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C0DB882-61A0-4F5F-8D4B-0A385A931C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C0DB882-61A0-4F5F-8D4B-0A385A931C60}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31A6ABBA-B555-4DB8-B88B-F04BC0B537B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31A6ABBA-B555-4DB8-B88B-F04BC0B537B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31A6ABBA-B555-4DB8-B88B-F04BC0B537B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31A6ABBA-B555-4DB8-B88B-F04BC0B537B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
